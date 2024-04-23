@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import axios from "axios";
-import { Chart, CategoryScale, LinearScale, Title } from 'chart.js';
+import { Chart, CategoryScale, LinearScale, Title, ArcElement } from 'chart.js';
 import { BarElement, BarController } from 'chart.js';
 
 const Delayed = ({ children, waitBeforeShow = 4500 }) => {
@@ -63,10 +63,10 @@ const UserChart = () => {
   }, []);
 
   useEffect(() => {
-    Chart.register(CategoryScale, LinearScale, Title, BarElement, BarController);
+    Chart.register(CategoryScale, LinearScale, Title, ArcElement, BarElement, BarController);
 
     return () => {
-      Chart.unregister(BarElement, BarController);
+      Chart.unregister(CategoryScale, LinearScale, Title, ArcElement, BarElement, BarController);
     };
   }, []);
 
