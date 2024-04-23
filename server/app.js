@@ -1,4 +1,3 @@
-// app.js
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -27,3 +26,10 @@ mongoose
         )
     )
     .catch((error) => console.error(error));
+
+// routers
+const calorie = require("./routes/calorie.routes.js");
+const users = require("./routes/users.routes.js");
+
+app.use("/calorie", calorie);
+app.use("/users", users);
