@@ -16,16 +16,16 @@ const PORT = process.env.PORT || 5000;
 
 // mongoose connection
 mongoose
-    .connect(DATABASE_CONNECTION, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() =>
-        app.listen(PORT, () =>
-            console.log(`Server is running at : http://localhost:${PORT}`)
-        )
+  .connect(DATABASE_CONNECTION, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() =>
+    app.listen(PORT, () =>
+      console.log(`Server is running at : http://localhost:${PORT}`)
     )
-    .catch((error) => console.error(error));
+  )
+  .catch((error) => console.error(error));
 
 // routers
 const calorie = require("./routes/calorie.routes.js");
